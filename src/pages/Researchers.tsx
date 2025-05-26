@@ -1,7 +1,7 @@
 import ResearcherCard from "../components/ResearcherCard";
 import researchers from "../data/researchers";
 
-export default function ResearchersPage() {
+export default function Researchers() {
   return (
     <main id="about" className="container mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6 text-center">

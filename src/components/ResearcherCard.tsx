@@ -13,7 +13,7 @@ export default function ResearcherCard({ name, title, image, bio }: Researcher) 
     <Card className="p-4 shadow-md hover:shadow-lg transition rounded-2xl w-full">
       <CardContent className="flex flex-col items-center text-center">
         <Avatar className="w-24 h-24">
-          <AvatarImage src={image} alt={name} />
+          <AvatarImage src={image} alt={name} style={{objectFit: "cover"}}/>
           <AvatarFallback>{name.charAt(0)}</AvatarFallback>
         </Avatar>
         <h3 className="text-lg font-semibold mt-4">{name}</h3>
