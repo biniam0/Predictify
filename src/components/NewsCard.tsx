@@ -6,7 +6,7 @@ import {
   CardDescription,
 } from "../components/ui/card";
 
-interface NewsCardProps {
+interface NewsType {
   id: number;
   title: string;
   date: string;
@@ -14,20 +14,24 @@ interface NewsCardProps {
   link: string;
 }
 
-const NewsCard = ({id, title, date, description, link}: NewsCardProps) => {
+interface NewsCardProps {
+  news: NewsType
+}
+
+const NewsCard = ({news}: NewsCardProps) => {
   return (
     <Card
-      key={id}
+      key={news.id}
       className="hover:shadow-lg transition-shadow duration-300"
     >
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <p className="text-sm text-muted-foreground">{date}</p>
+        <CardTitle>{news.title}</CardTitle>
+        <p className="text-sm text-muted-foreground">{news.date}</p>
       </CardHeader>
       <CardContent>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription>{news.description}</CardDescription>
         <a
-          href={link}
+          href={news.link}
           className="text-sm text-blue-600 mt-2 inline-block hover:underline"
         >
           Read More →

@@ -10,7 +10,7 @@ export default function News() {
       <h2 className="text-3xl font-bold mb-8 text-center">Latest News</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {newsItems.map((news) => (
-          <NewsCard {...news} />
+          <NewsCard key={news.id} news={news} />
         ))}
       </div>
     </section>
