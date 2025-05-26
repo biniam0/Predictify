@@ -1,16 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
-// main.tsx or App.tsx
+import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "../src/components/theme-provider.tsx";
+import "./index.css";
+import router from "./routes/routes.tsx";
 
 
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <App />
+      <RouterProvider router={router} />
+      {/* <App /> */}
     </ThemeProvider>
   </StrictMode>
 );

@@ -13,12 +13,12 @@ export default function Welcome() {
           the future of AI and education.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 justify-center">
-          {/* <Link to="/researchers">
+          <Link to="/researchers">
             <Button variant="default">Explore Researchers</Button>
           </Link>
           <Link to="/news">
             <Button variant="outline">Latest News</Button>
-          </Link> */}
+          </Link>
         </div>
       </section>
     </div>

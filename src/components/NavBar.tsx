@@ -9,68 +9,60 @@ import {
 import { Menu, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTheme } from "./theme-provider";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const { setTheme } = useTheme();
   return (
-    <nav className="flex items-center justify-between px-6 py-4 border-b bg-white shadow-sm gap-3">
-      <div className="text-xl font-bold text-black">Predictify</div>
+    <nav className="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-[95%] backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 shadow-md rounded-b-xl px-4 mb-4">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-5">
+        <Link to="/" className="text-xl font-bold ">Predictify</Link>
 
-      <div className="flex-1 mx-6 max-w-md">
-        <Input type="text" placeholder="Search..." className="w-full" />
-      </div>
+        <div className="flex-1 mx-6 max-w-md">
+          <Input type="text" placeholder="Search..." className="w-full" />
+        </div>
 
-      <div className="space-x-3 hidden md:flex text-sm font-medium text-gray-700">
-        <a href="#about" className="hover:text-blue-600">
-          Researchers
-        </a>
-        <a href="#news" className="hover:text-blue-600">
-          News
-        </a>
-        <a href="#events" className="hover:text-blue-600">
-          Events
-        </a>
-        <a href="#focus" className="hover:text-blue-600">
-          Focus
-        </a>
-        <a href="#stories" className="hover:text-blue-600">
-          Stories
-        </a>
-      </div>
-      <div className="md:hidden">
-        <DropdownMenu>
-          <DropdownMenuTrigger className="focus:outline-none">
-            <Menu className="w-6 h-6 text-gray-700" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuItem>
-              <a href="#about" className="w-full">
-                About Researchers
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#news" className="w-full">
-                News
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#events" className="w-full">
-                Events
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#focus" className="w-full">
-                Thematic Focus
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a href="#stories" className="w-full">
-                Stories
-              </a>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
+        <div className="space-x-3 hidden md:flex text-sm font-medium">
+          <Link to="/news">News</Link>
+          <Link to="/events">Events</Link>
+          <Link to="/stories">Stories</Link>
+          <Link to="/focus">Focus</Link>
+          <Link to="/researchers">Researchers</Link>
+        </div>
+        <div className="md:hidden">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="focus:outline-none">
+              <Menu className="w-6 h-6 text-gray-700" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuItem>
+                <a href="#about" className="w-full">
+                  About Researchers
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="#news" className="w-full">
+                  News
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="#events" className="w-full">
+                  Events
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="#focus" className="w-full">
+                  Thematic Focus
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="#stories" className="w-full">
+                  Stories
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button size="icon">
@@ -90,6 +82,7 @@ export default function Navbar() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+      </div>
     </nav>
   );
 }
