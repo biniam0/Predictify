@@ -1,20 +1,19 @@
+import { ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
-    <footer className="border-t py-6 mt-12 bg-white text-gray-600 text-sm">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+    <footer className="border-t-2 b-0 py-4 mt-6 text-sm">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-4">
         <p>
           &copy; {new Date().getFullYear()} Predictify. All rights reserved.
         </p>
-        <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="/about" className="hover:text-blue-600">
-            About
-          </a>
-          <a href="/contact" className="hover:text-blue-600">
-            Contact
-          </a>
-          <a href="/privacy" className="hover:text-blue-600">
-            Privacy
-          </a>
+        <div className="flex gap-6 md:mt-0">
+          <Link to="/">About</Link>
+          <Link to="/">Contacts</Link>
+          <Link to="/">
+            <ChevronUp />
+          </Link>
         </div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import Events from "../pages/Events";
 import News from "../pages/News";
 import Stories from "../pages/Stories";
 import Layout from "../components/Layout";
+import ThematicFocus from "../pages/ThematicFocus";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "/events", element: <Events /> },
       { path: "/news", element: <News /> },
       { path: "/stories", element: <Stories /> },
+      { path: "/focuses", element: <ThematicFocus /> },
     ],
   },
 ]);
