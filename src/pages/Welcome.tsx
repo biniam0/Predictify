@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function Welcome() {
   return (
-    <div className=" flex flex-col justify-between px-4">
-      <section className="flex flex-col items-center justify-center text-center py-32 bg-gradient-to-br from-black-100 to-white">
+    <div className="h-[100vh] flex flex-col justify-between px-4">
+      <section className="flex flex-col items-center justify-center text-center bg-gradient-to-br from-black-100 to-white">
         <h1 className="text-5xl font-bold mb-4 text-white-900">
           Welcome to Predictify
         </h1>
