@@ -1,0 +1,73 @@
+// prisma/schema.prisma
+// --------------------
+// Postgres (Neon) connection
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")   // e.g. postgres://user:password@HOST/db?sslmode=require
+}
+
+// Generate the Prisma Client
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Researcher {
+  id        Int      @id @default(autoincrement())
+  name      String
+  title     String?
+  imageUrl  String?  @map("image_url")
+  bio       String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt      @map("updated_at")
+
+  @@index([name])
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  title       String
+  publishedAt DateTime @map("published_at")
+  excerpt     String?
+  imageUrl    String?  @map("image_url")
+  link        String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt      @map("updated_at")
+
+  @@index([publishedAt])
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  eventDate   DateTime @map("event_date")
+  time        String?
+  location    String?
+  description String?
+  imageUrl    String?  @map("image_url")
+  link        String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt      @map("updated_at")
+
+  @@index([eventDate])
+}
+
+model Story {
+  id          Int      @id @default(autoincrement())
+  title       String
+  author      String?
+  excerpt     String?
+  imageUrl    String?  @map("image_url")
+  link        String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt      @map("updated_at")
+}
+
+model ThematicFocus {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String?  @map("image_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt      @map("updated_at")
+}
