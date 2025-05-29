@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
-// import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import ResearcherCard, { Researcher } from "../components/ResearcherCard";
 import apiClient from "../configs/axiosConfig";
-// import researchers from "../data/researchers";
 
 export default function Researchers() {
-  const [researchers, setResearchers] = useState<Researcher[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await apiClient.get("/researchers").then((res) => res.data);
-        setResearchers(res);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log(researchers);
+  const { data: researchers } = useQuery({
+    queryKey: ["researchers"],
+    queryFn: () =>
+      apiClient.get<Researcher[]>("/researchers").then((res) => res.data),
+  });
 
   return (
     <main className="pt-[100px] container mx-auto px-4 py-10">
@@ -26,7 +15,7 @@ export default function Researchers() {
         Meet Our Researchers
       </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {researchers.map((r) => (
+        {researchers?.map((r) => (
           <ResearcherCard key={r.name} {...r} />
         ))}
       </div>
