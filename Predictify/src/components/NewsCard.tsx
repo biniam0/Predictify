@@ -6,19 +6,20 @@ import {
   CardDescription,
 } from "../components/ui/card";
 
-interface NewsType {
+export interface NewsType {
   id: number;
   title: string;
   date: string;
+  imageUrl: string;
   description: string;
   link: string;
 }
 
 interface NewsCardProps {
-  news: NewsType
+  news: NewsType;
 }
 
-const NewsCard = ({news}: NewsCardProps) => {
+const NewsCard = ({ news }: NewsCardProps) => {
   return (
     <Card
       key={news.id}
@@ -26,6 +27,11 @@ const NewsCard = ({news}: NewsCardProps) => {
     >
       <CardHeader>
         <CardTitle>{news.title}</CardTitle>
+        <img
+          src={news.imageUrl}
+          alt={news.title}
+          className="w-full h-40 object-cover rounded-md"
+        />
         <p className="text-sm text-muted-foreground">{news.date}</p>
       </CardHeader>
       <CardContent>
@@ -33,6 +39,7 @@ const NewsCard = ({news}: NewsCardProps) => {
         <a
           href={news.link}
           className="text-sm text-blue-600 mt-2 inline-block hover:underline"
+          target="_blank"
         >
           Read More →
         </a>

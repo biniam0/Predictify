@@ -18,8 +18,7 @@ const researchers = [
   {
     name: "Dr. John Smith",
     title: "Neuroscience Lead",
-    image:
-      "https://github.com/shadcn.png",
+    image: "https://github.com/shadcn.png",
     bio: "Explores brain-computer interface technologies.",
   },
   {

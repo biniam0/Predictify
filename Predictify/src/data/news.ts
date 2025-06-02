@@ -24,7 +24,7 @@ const newsItems = [
     link: "#",
   },
   {
-    id: 1,
+    id: 4,
     title: "AI Breakthrough in Predictive Modeling",
     date: "May 24, 2025",
     description:

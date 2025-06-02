@@ -1,7 +1,7 @@
 import prisma from "../models/prisma";
 
-const getResearchers = async () => {
+const addResearcher = async () => {
   return await prisma.researcher.findMany();
 };
 
-export default getResearchers;
+export default addResearcher;

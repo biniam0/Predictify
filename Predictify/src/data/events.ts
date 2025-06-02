@@ -30,7 +30,7 @@ const events = [
     link: "#",
   },
   {
-    id: 1,
+    id: 4,
     title: "Global Climate Symposium",
     date: "June 10, 2025",
     time: "10:00 AM - 4:00 PM",
@@ -40,7 +40,7 @@ const events = [
     link: "#",
   },
   {
-    id: 2,
+    id: 5,
     title: "AI for Social Impact Summit",
     date: "June 18, 2025",
     time: "2:00 PM - 6:00 PM",
@@ -50,7 +50,7 @@ const events = [
     link: "#",
   },
   {
-    id: 3,
+    id: 6,
     title: "Predictive Analytics Bootcamp",
     date: "July 5, 2025",
     time: "9:00 AM - 5:00 PM",
