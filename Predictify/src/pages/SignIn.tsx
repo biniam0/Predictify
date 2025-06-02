@@ -28,7 +28,7 @@ export default function SignIn() {
       {
         email,
         password,
-        callbackURL: "/admin",
+        callbackURL: "/", // changed from "/admin" -> "/"
       },
       {
         onRequest: (ctx) => {
