@@ -68,13 +68,6 @@ export default function FocusesAdmin() {
           <li key={f.id} className="border p-4 rounded-md">
             <p className="font-medium">{f.title}</p>
             <p className="text-sm">{f.description}</p>
-            {f.imageUrl && (
-              <img
-                src={f.imageUrl}
-                alt={f.title}
-                className="w-full h-auto mt-2 rounded"
-              />
-            )}
           </li>
         ))}
       </ul>

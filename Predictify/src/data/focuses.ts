@@ -2,7 +2,7 @@ const focuses = [
   {
     title: "AI in Education",
     description:
-      "aExploring the impact of artificial intelligence in personalized and accessible learning.",
+      "Exploring the impact of artificial intelligence in personalized and accessible learning.",
     image:
       "https://www.chitkara.edu.in/blogs/wp-content/uploads/2021/05/AI-Transformation_Blog.jpg",
   },

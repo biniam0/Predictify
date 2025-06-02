@@ -9,9 +9,12 @@ import researchersRouter from "./routes/researchers.routes";
 import addResearchersRoute from "./routes/addResearchers.route";
 import newsRouter from "./routes/newsRouter.routes";
 import addNewsRoute from "./routes/addNews.route";
-import addStoriesRoute from "./routes/addStories";
+import addStoriesRoute from "./routes/addStories.route";
 import addEventsRoute from "./routes/addEvents.route";
 import addFocusRoute from "./routes/addFocus.route";
+import eventsRouter from "./routes/eventsRouter.route";
+import focusesRouter from "./routes/focusesRouter.route";
+import storiesRouter from "./routes/storiesRouter.route";
 
 dotenv.config();
 
@@ -36,12 +39,16 @@ app.all(
 app.use(express.json());
 
 app.use("/researchers", researchersRouter);
+app.use("/events", eventsRouter);
+app.use("/focuses", focusesRouter);
+app.use("/news", newsRouter);
+app.use("/stories", storiesRouter);
+
 app.use("/add-researcher", addResearchersRoute);
-app.use("/add-news", addNewsRoute);
-app.use("/add-stories", addStoriesRoute);
 app.use("/add-event", addEventsRoute);
 app.use("/add-focus", addFocusRoute);
-app.use("/news", newsRouter);
+app.use("/add-news", addNewsRoute);
+app.use("/add-stories", addStoriesRoute);
 
 app.get("/", (_req, res) => {
   res.send("API is running........");

@@ -73,9 +73,6 @@ export default function EventsAdmin() {
             {event.location && <p className="text-sm text-gray-500">{event.location}</p>}
             <p className="text-sm">{event.date}</p>
             {event.description && <p className="text-sm">{event.description}</p>}
-            {event.imageUrl && (
-              <img src={event.imageUrl} alt={event.title} className="w-full h-auto mt-2 rounded" />
-            )}
           </li>
         ))}
       </ul>
