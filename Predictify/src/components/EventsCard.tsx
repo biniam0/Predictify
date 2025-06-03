@@ -7,7 +7,7 @@ import {
 } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 
-interface EventType {
+export interface EventType {
   id: number;
   title: string;
   date: string;

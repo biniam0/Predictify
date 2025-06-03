@@ -15,6 +15,7 @@ import NewsAdmin from "../pages/admin/NewsAdmin";
 import StoriesAdmin from "../pages/admin/StoriesAdmin";
 import EventsAdmin from "../pages/admin/EventsAdmin";
 import FocusesAdmin from "../pages/admin/FocusesAdmin";
+import UserProfile from "../pages/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       { path: "/events", element: <Events /> },
       { path: "/news", element: <News /> },
       { path: "/stories", element: <Stories /> },
-
+      { path: "/profile", element: <UserProfile /> },
       { path: "/focuses", element: <ThematicFocus /> },
       {
         path: "/admin",

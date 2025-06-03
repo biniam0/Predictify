@@ -15,6 +15,7 @@ import addFocusRoute from "./routes/addFocus.route";
 import eventsRouter from "./routes/eventsRouter.route";
 import focusesRouter from "./routes/focusesRouter.route";
 import storiesRouter from "./routes/storiesRouter.route";
+import currentUserRoute from "./routes/currentUser.route";
 
 dotenv.config();
 
@@ -49,6 +50,8 @@ app.use("/add-event", addEventsRoute);
 app.use("/add-focus", addFocusRoute);
 app.use("/add-news", addNewsRoute);
 app.use("/add-stories", addStoriesRoute);
+
+app.use("/me", currentUserRoute)
 
 app.get("/", (_req, res) => {
   res.send("API is running........");

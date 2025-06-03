@@ -7,12 +7,12 @@ import {
 } from "./ui/card";
 import { Button } from "./ui/button";
 
-interface StoryType {
+export interface StoryType {
   id: number;
   title: string;
   author: string;
   excerpt: string;
-  image: string;
+  imageUrl: string;
   link: string;
 }
 
@@ -27,7 +27,7 @@ const StoryCard = ({ story }: StoryCardType) => {
       className="overflow-hidden shadow hover:shadow-lg transition"
     >
       <img
-        src={story.image}
+        src={story.imageUrl}
         alt={story.title}
         className="w-full h-40 object-cover"
       />

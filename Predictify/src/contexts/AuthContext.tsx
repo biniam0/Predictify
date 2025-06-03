@@ -7,11 +7,13 @@ type User = {
   name: string;
   email: string;
   role?: string;
+  image: string;
 };
 
 type AuthContextType = {
   user: User | null;
   loading: boolean;
+  isAuthenticated: boolean;
   refresh: () => Promise<void>;
   logout: () => Promise<void>;
 };
@@ -27,8 +29,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchUser = async () => {
     setLoading(true);
     try {
-      const {data: session} = await authClient.getSession({ fetchOptions: { credentials: "include" } });
-      setUser(session?.user ?? null);
+      const { data: session } = await authClient.getSession({
+        fetchOptions: { credentials: "include" },
+      });
+      setUser(
+        session?.user
+          ? {
+              ...session.user,
+              image: session.user.image ?? "",
+            }
+          : null
+      );
     } catch (error) {
       console.error("Failed to fetch user session", error);
       setUser(null);
@@ -51,7 +62,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, refresh: fetchUser, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        refresh: fetchUser,
+        logout,
+        isAuthenticated: !!user,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

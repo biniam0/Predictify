@@ -1,9 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-interface FocusType {
+export interface FocusType {
   title: string;
   description: string;
-  image: string;
+  imageUrl: string;
 }
 
 interface FocusCardProps {
@@ -15,7 +15,7 @@ const FocusCard = ({ focus, index }: FocusCardProps) => {
   return (
     <Card key={index} className="overflow-hidden">
       <img
-        src={focus.image}
+        src={focus.imageUrl}
         alt={focus.title}
         className="h-40 w-full object-cover"
       />

@@ -11,7 +11,7 @@ import {
   User,
   Menu,
   Moon,
-  Settings,
+  // Settings,
   Sun,
   LogOut,
   LayoutDashboard,
@@ -40,7 +40,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex-1 mx-6 max-w-md">
-          <Input type="text" placeholder="Search..." className="w-full" />
+          <Input type="text" placeholder="" className="w-full border-hidden shadow-white"  />
         </div>
 
         <div className="space-x-3 hidden md:flex text-sm font-medium">
@@ -110,29 +110,31 @@ export default function Navbar() {
                 </DropdownMenuItem>
                 <hr />
                 <DropdownMenuItem>
-                  <Link to="/">
+                  <Link to="/profile">
                     <div className="flex items-center gap-2">
                       <User size={20} />
                       Profile
                     </div>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/admin">
-                    <div className="flex items-center gap-2">
-                      <LayoutDashboard size={20} />
-                      Dashboard
-                    </div>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
+                {(user?.role === "admin" || user?.role === "researcher") && (
+                  <DropdownMenuItem asChild>
+                    <Link to="/admin">
+                      <div className="flex items-center gap-2">
+                        <LayoutDashboard size={20} />
+                        Dashboard
+                      </div>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+                {/* <DropdownMenuItem>
                   <Link to="/">
                     <div className="flex items-center gap-2">
                       <Settings size={20} />
                       Settings
                     </div>
                   </Link>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
                 <DropdownMenuItem className="">
                   <button
                     onClick={handleLogout}
